@@ -1,0 +1,46 @@
+[
+  {
+    "id": 4400,
+    "position": {
+      "x": 3087,
+      "y": 3500,
+      "z": 0
+    },
+    "random-walk": false,
+    "walk-radius": 0,
+	"direction": "north"
+  },
+  {
+    "id": 3343,
+    "position": {
+      "x": 3091,
+      "y": 3494,
+      "z": 0
+    },
+    "random-walk": false,
+    "walk-radius": 0,
+	"direction": "east"
+  },
+  {
+    "id": 1306,
+    "position": {
+      "x": 3087,
+      "y": 3491,
+      "z": 0
+    },
+    "random-walk": true,
+    "walk-radius": 1,
+	"direction": "north"
+  },
+  {
+    "id": 2215,
+    "position": {
+      "x": 2871,
+      "y": 5361,
+      "z": 2
+    },
+    "random-walk": true,
+    "walk-radius": 2,
+	"direction": "south"
+  }
+]

@@ -1,0 +1,160 @@
+[
+  {
+    "opcodes": [
+      202
+    ],
+    "class": "edgeville.net.message.impl.IdleStateMessage"
+  },
+  {
+    "opcodes": [
+      249,
+      73
+    ],
+    "class": "edgeville.net.message.impl.AttackPlayerMessage"
+  },
+  {
+    "opcodes": [
+      101
+    ],
+    "class": "edgeville.net.message.impl.CharacterSelectionMessage"
+  },
+  {
+    "opcodes": [
+      4
+    ],
+    "class": "edgeville.net.message.impl.ChatMessage"
+  },
+  {
+    "opcodes": [
+      185
+    ],
+    "class": "edgeville.net.message.impl.ClickButtonMessage"
+  },
+  {
+    "opcodes": [
+      122
+    ],
+    "class": "edgeville.net.message.impl.ItemActionMessage"
+  },
+  {
+    "opcodes": [
+      103
+    ],
+    "class": "edgeville.net.message.impl.CommandMessage"
+  },
+  {
+    "opcodes": [
+      0,
+      95,
+      241,
+      86
+    ],
+    "class": "edgeville.net.message.impl.DefaultMessage"
+  },
+  {
+    "opcodes": [
+      40
+    ],
+    "class": "edgeville.net.message.impl.AdvanceDialogueMessage"
+  },
+  {
+    "opcodes": [
+      87
+    ],
+    "class": "edgeville.net.message.impl.DropItemMessage"
+  },
+  {
+    "opcodes": [
+      39
+    ],
+    "class": "edgeville.net.message.impl.FollowPlayerMessage"
+  },
+  {
+    "opcodes": [
+      130
+    ],
+    "class": "edgeville.net.message.impl.InterfaceClickMessage"
+  },
+  {
+    "opcodes": [
+      145,
+      41,
+      117,
+      43,
+      129,
+      214
+    ],
+    "class": "edgeville.net.message.impl.ItemInterfaceMessage"
+  },
+  {
+    "opcodes": [
+      53
+    ],
+    "class": "edgeville.net.message.impl.ItemOnItemMessage"
+  },
+  {
+    "opcodes": [
+      192
+    ],
+    "class": "edgeville.net.message.impl.ItemOnObjectMessage"
+  },
+  {
+    "opcodes": [
+      14
+    ],
+    "class": "edgeville.net.message.impl.ItemOnPlayerMessage"
+  },
+  {
+    "opcodes": [
+      248,
+      164,
+      98
+    ],
+    "class": "edgeville.net.message.impl.MovementQueueMessage"
+  },
+  {
+    "opcodes": [
+      72,
+      131,
+      155,
+      17
+    ],
+    "class": "edgeville.net.message.impl.NpcActionMessage"
+  },
+  {
+    "opcodes": [
+      132,
+      252,
+      70
+    ],
+    "class": "edgeville.net.message.impl.ObjectActionMessage"
+  },
+  {
+    "opcodes": [
+      236
+    ],
+    "class": "edgeville.net.message.impl.PickupItemMessage"
+  },
+  {
+    "opcodes": [
+      188,
+      215,
+      133,
+      74,
+      126
+    ],
+    "class": "edgeville.net.message.impl.PrivateMessagingMessage"
+  },
+  {
+    "opcodes": [
+      139
+    ],
+    "class": "edgeville.net.message.impl.RequestMessage"
+  },
+  {
+    "opcodes": [
+      121
+    ],
+    "class": "edgeville.net.message.impl.UpdateRegionMessage"
+  }
+]
