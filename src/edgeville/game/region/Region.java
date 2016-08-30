@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import edgeville.Server;
+import edgeville.game.character.CharacterNode;
 import edgeville.game.character.player.Player;
 import edgeville.game.location.Position;
 import edgeville.game.object.ObjectType;
@@ -1302,5 +1303,22 @@ public class Region {
 			}
 		}
 		return r.getClip(x, y, height);
+	}
+	
+	/**
+	 * Checks whether the attacker can attack the victim.
+	 * @param attacker
+	 * @param victim
+	 * @return
+	 */
+	public static boolean canAttack(CharacterNode attacker, CharacterNode victim) {
+
+		if (attacker.getPosition().getZ() != victim.getPosition().getZ()) {
+			return false;
+		}
+		if (!canMove(attacker.getPosition().getX(), attacker.getPosition().getY(), victim.getPosition().getX(), victim.getPosition().getY(), attacker.getPosition().getZ() % 4, 1, 1)) {
+			return false;
+		}
+		return true;
 	}
 }

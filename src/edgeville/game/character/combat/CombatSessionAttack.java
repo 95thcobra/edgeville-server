@@ -69,6 +69,7 @@ public final class CombatSessionAttack extends Task {
 			this.cancel();
 			return;
 		}
+		
 		data = data.preAttack();
 
 		if (data.getHits().length != 0 && data.getType() != CombatType.MAGIC || data.isAccurate()) {

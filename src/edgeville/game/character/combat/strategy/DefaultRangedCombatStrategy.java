@@ -20,11 +20,17 @@ import edgeville.game.character.player.Player;
 import edgeville.game.character.player.content.WeaponInterface;
 import edgeville.game.item.Item;
 import edgeville.game.item.container.Equipment;
+import edgeville.game.region.Region;
 
 public class DefaultRangedCombatStrategy implements CombatStrategy {
 
 	@Override
 	public boolean canAttack(CharacterNode character, CharacterNode victim) {
+		
+		if (!Region.canAttack(character, victim)) {
+			return false;
+		}
+		
 		if (character.getType() == NodeType.NPC)
 			return true;
 		Player player = (Player) character;

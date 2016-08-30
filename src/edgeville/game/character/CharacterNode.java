@@ -15,10 +15,12 @@ import edgeville.game.character.combat.CombatType;
 import edgeville.game.character.combat.effect.CombatEffectType;
 import edgeville.game.character.combat.magic.CombatSpell;
 import edgeville.game.character.combat.magic.CombatWeaken;
+import edgeville.game.character.combat.strategy.DefaultRangedCombatStrategy;
 import edgeville.game.character.npc.Npc;
 import edgeville.game.character.player.Player;
 import edgeville.game.location.Position;
 import edgeville.game.region.PathFinder;
+import edgeville.game.region.Region;
 import edgeville.task.Task;
 import edgeville.utility.MutableNumber;
 import edgeville.utility.Stopwatch;
@@ -1069,6 +1071,18 @@ public abstract class CharacterNode extends Node {
 
 		if (this instanceof Player && this.getCombatBuilder().getVictim() != null) {
 			this.determineStrategy();
+
+			/*if (this instanceof Player) {
+				((Player) this).getMessages().sendMessage("clipped:);
+				if (this.getCombatBuilder().getStrategy() instanceof DefaultRangedCombatStrategy) {
+					boolean clipped = Region.checkClip(((Player) this), otherX, otherY);
+					((Player) this).getMessages().sendMessage("clipped:" + clipped);
+					if (clipped) {
+						return;
+					}
+				}
+			}*/
+
 			if (Combat.checkAttackDistance(this.getCombatBuilder())) {
 				return;
 			}

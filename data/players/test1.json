@@ -2,8 +2,8 @@
   "username": "test1",
   "password": "test",
   "position": {
-    "x": 3087,
-    "y": 3523,
+    "x": 3084,
+    "y": 3525,
     "z": 0
   },
   "rights": "DEVELOPER",
@@ -340,39 +340,39 @@
   "special-amount": 100,
   "skills": [
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.5E7,
+      "realLevel": 99
     },
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.5E7,
+      "realLevel": 99
     },
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.5E7,
+      "realLevel": 99
     },
     {
-      "level": 10,
-      "experience": 1300.0,
-      "realLevel": 10
+      "level": 99,
+      "experience": 1.50013E7,
+      "realLevel": 99
     },
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.5E7,
+      "realLevel": 99
     },
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.5E7,
+      "realLevel": 99
     },
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.5E7,
+      "realLevel": 99
     },
     {
       "level": 1,

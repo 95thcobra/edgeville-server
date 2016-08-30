@@ -1,12 +1,12 @@
 {
-  "username": "sky",
-  "password": "test",
+  "username": "boobs hunter",
+  "password": "123",
   "position": {
-    "x": 3090,
-    "y": 3529,
+    "x": 3088,
+    "y": 3523,
     "z": 0
   },
-  "rights": "DEVELOPER",
+  "rights": "PLAYER",
   "appearance": [
     0,
     0,
@@ -24,57 +24,33 @@
   ],
   "running": true,
   "new-player": false,
-  "debug": true,
+  "debug": false,
   "inventory": [
     {
       "id": 995,
-      "amount": 5
-    },
-    {
-      "id": 4151,
-      "amount": 1
-    },
-    {
-      "id": 526,
-      "amount": 1
-    },
-    {
-      "id": 5698,
-      "amount": 1
+      "amount": 10000
     },
     {
       "id": 560,
-      "amount": 135274
+      "amount": 1
     },
     {
       "id": 565,
-      "amount": 12376
+      "amount": 1
     },
     {
-      "id": 554,
-      "amount": 1235325234
-    },
-    {
-      "id": 555,
-      "amount": 23456168
+      "id": 526,
+      "amount": 1
     },
     null,
-    {
-      "id": 526,
-      "amount": 1
-    },
-    {
-      "id": 526,
-      "amount": 1
-    },
-    {
-      "id": 1615,
-      "amount": 1
-    },
-    {
-      "id": 4152,
-      "amount": 1
-    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
     null,
     null,
     null,
@@ -347,10 +323,6 @@
     null,
     null,
     null,
-    {
-      "id": 861,
-      "amount": 1
-    },
     null,
     null,
     null,
@@ -360,70 +332,66 @@
     null,
     null,
     null,
-    {
-      "id": 892,
-      "amount": 25227
-    }
+    null,
+    null
   ],
-  "friends": [
-    1020628
-  ],
+  "friends": [],
   "ignores": [],
-  "run-energy": 100,
-  "spellbook": "ANCIENT",
+  "run-energy": 93,
+  "spellbook": "NORMAL",
   "account-banned": false,
-  "auto-retaliate": true,
-  "fight-type": "SHORTBOW_ACCURATE",
-  "skull-timer": 200,
+  "auto-retaliate": false,
+  "fight-type": "UNARMED_PUNCH",
+  "skull-timer": 0,
   "accept-aid": true,
   "poison-damage": 0,
   "teleblock-timer": 0,
   "special-amount": 100,
   "skills": [
     {
-      "level": 99,
-      "experience": 1.5105069E7,
-      "realLevel": 99
+      "level": 1,
+      "experience": 0.0,
+      "realLevel": 1
     },
     {
-      "level": 99,
-      "experience": 1.5101333E7,
-      "realLevel": 99
+      "level": 1,
+      "experience": 0.0,
+      "realLevel": 1
     },
     {
-      "level": 99,
-      "experience": 9.0E7,
-      "realLevel": 99
+      "level": 1,
+      "experience": 0.0,
+      "realLevel": 1
     },
     {
-      "level": 99,
-      "experience": 9.00043129999999E7,
-      "realLevel": 99
+      "level": 10,
+      "experience": 1300.0,
+      "realLevel": 10
     },
     {
-      "level": 99,
-      "experience": 9.0002616E7,
-      "realLevel": 99
+      "level": 1,
+      "experience": 0.0,
+      "realLevel": 1
     },
     {
-      "level": 99,
-      "experience": 9.0E7,
-      "realLevel": 99
+      "level": 1,
+      "experience": 0.0,
+      "realLevel": 1
     },
     {
-      "level": 99,
-      "experience": 1.303601E7,
-      "realLevel": 99
+      "level": 1,
+      "experience": 0.0,
+      "realLevel": 1
     },
     {
-      "level": 99,
-      "experience": 1.3034431E7,
-      "realLevel": 99
+      "level": 1,
+      "experience": 0.0,
+      "realLevel": 1
     },
     {
-      "level": 99,
-      "experience": 1.3034431E7,
-      "realLevel": 99
+      "level": 1,
+      "experience": 0.0,
+      "realLevel": 1
     },
     {
       "level": 1,

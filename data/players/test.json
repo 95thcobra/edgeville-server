@@ -3,7 +3,7 @@
   "password": "test",
   "position": {
     "x": 3087,
-    "y": 3493,
+    "y": 3529,
     "z": 0
   },
   "rights": "DEVELOPER",
@@ -30,12 +30,30 @@
       "id": 995,
       "amount": 10000
     },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
+    {
+      "id": 561,
+      "amount": 1
+    },
+    {
+      "id": 566,
+      "amount": 1
+    },
+    {
+      "id": 671,
+      "amount": 1
+    },
+    {
+      "id": 551,
+      "amount": 1
+    },
+    {
+      "id": 556,
+      "amount": 1
+    },
+    {
+      "id": 502,
+      "amount": 1
+    },
     null,
     null,
     null,
@@ -314,7 +332,10 @@
     null,
     null,
     null,
-    null,
+    {
+      "id": 4151,
+      "amount": 1
+    },
     null,
     null,
     null,
@@ -332,7 +353,7 @@
   "spellbook": "NORMAL",
   "account-banned": false,
   "auto-retaliate": false,
-  "fight-type": "UNARMED_PUNCH",
+  "fight-type": "WHIP_FLICK",
   "skull-timer": 0,
   "accept-aid": true,
   "poison-damage": 0,
@@ -341,7 +362,7 @@
   "skills": [
     {
       "level": 99,
-      "experience": 1.5000044E7,
+      "experience": 1.500014E7,
       "realLevel": 99
     },
     {
@@ -355,8 +376,8 @@
       "realLevel": 99
     },
     {
-      "level": 65,
-      "experience": 1.5001314666666668E7,
+      "level": 62,
+      "experience": 1.5001346666666668E7,
       "realLevel": 99
     },
     {
