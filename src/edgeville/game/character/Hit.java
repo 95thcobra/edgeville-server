@@ -2,7 +2,7 @@ package edgeville.game.character;
 
 /**
  * The container class that represents a hit that can be dealt on a
- * {@link CharacterNode}.
+ * {@link Entity}.
  *
  * @author lare96 <http://github.com/lare96>
  */

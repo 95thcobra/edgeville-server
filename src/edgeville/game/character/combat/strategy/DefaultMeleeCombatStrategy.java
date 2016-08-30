@@ -3,7 +3,7 @@ package edgeville.game.character.combat.strategy;
 import edgeville.game.NodeType;
 import edgeville.game.character.Animation;
 import edgeville.game.character.AnimationPriority;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.combat.CombatSessionData;
 import edgeville.game.character.combat.CombatStrategy;
 import edgeville.game.character.combat.CombatType;
@@ -17,23 +17,23 @@ import edgeville.game.item.container.Equipment;
 public class DefaultMeleeCombatStrategy implements CombatStrategy {
 
 	@Override
-	public boolean canAttack(CharacterNode character, CharacterNode victim) {
+	public boolean canAttack(Entity character, Entity victim) {
 		return true;
 	}
 
 	@Override
-	public CombatSessionData attack(CharacterNode character, CharacterNode victim) {
+	public CombatSessionData attack(Entity character, Entity victim) {
 		startAnimation(character);
 		return new CombatSessionData(character, victim, 1, CombatType.MELEE, true);
 	}
 
 	@Override
-	public int attackDelay(CharacterNode character) {
+	public int attackDelay(Entity character) {
 		return character.getAttackSpeed();
 	}
 
 	@Override
-	public int attackDistance(CharacterNode character) {
+	public int attackDistance(Entity character) {
 		if (character.getType() == NodeType.NPC)
 			return 1;
 		if (((Player) character).getWeapon() == WeaponInterface.HALBERD)
@@ -46,7 +46,7 @@ public class DefaultMeleeCombatStrategy implements CombatStrategy {
 		return new int[] {};
 	}
 
-	private void startAnimation(CharacterNode character) {
+	private void startAnimation(Entity character) {
 		if (character.getType() == NodeType.NPC) {
 			Npc npc = (Npc) character;
 			npc.animation(new Animation(npc.getDefinition().getAttackAnimation()));

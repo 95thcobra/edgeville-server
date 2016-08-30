@@ -2,7 +2,7 @@ package edgeville.game.region;
 
 import java.util.LinkedList;
 
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.player.Player;
 import edgeville.game.location.Position;
 
@@ -12,7 +12,7 @@ public class PathFinder {
 		return findRoute(c, other.getPosition().getX(), other.getPosition().getY(), true, 1, 1);
 	}*/
 
-	public static boolean findRoute(CharacterNode c, int destX, int destY, boolean moveNear, int xLength, int yLength) {
+	public static boolean findRoute(Entity c, int destX, int destY, boolean moveNear, int xLength, int yLength) {
 		if (destX == c.getPosition().getX() && destY == c.getPosition().getY() && !moveNear || !c.goodDistance(c.getPosition().getX(), c.getPosition().getY(), destX, destY, 20)) {
 			return false;
 		}

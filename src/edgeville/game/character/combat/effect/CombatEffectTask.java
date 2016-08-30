@@ -1,6 +1,6 @@
 package edgeville.game.character.combat.effect;
 
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.task.Task;
 
 /**
@@ -14,7 +14,7 @@ public final class CombatEffectTask extends Task {
     /**
      * The character that this task is for.
      */
-    private final CharacterNode c;
+    private final Entity c;
 
     /**
      * The combat effect that is being processed.
@@ -29,7 +29,7 @@ public final class CombatEffectTask extends Task {
      * @param effect
      *            the combat effect that is being processed.
      */
-    public CombatEffectTask(CharacterNode c, CombatEffect effect) {
+    public CombatEffectTask(Entity c, CombatEffect effect) {
         super(effect.getDelay(), false);
         super.attach(c);
         this.c = c;

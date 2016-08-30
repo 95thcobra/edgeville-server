@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import edgeville.game.NodeType;
 import edgeville.game.World;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.npc.Npc;
 import edgeville.game.character.player.Player;
 import edgeville.game.location.Position;
@@ -21,17 +21,17 @@ public final class CombatBuilder {
 	/**
 	 * The character in control of this combat builder.
 	 */
-	private final CharacterNode character;
+	private final Entity character;
 
 	/**
 	 * The current character that the controller is attacking.
 	 */
-	private CharacterNode currentVictim;
+	private Entity currentVictim;
 
 	/**
 	 * The last character that attacked the controller.
 	 */
-	private CharacterNode lastAttacker;
+	private Entity lastAttacker;
 
 	/**
 	 * The task that handles the entire combat process.
@@ -69,7 +69,7 @@ public final class CombatBuilder {
 	 * @param character
 	 *            the character in control of this combat builder.
 	 */
-	public CombatBuilder(CharacterNode character) {
+	public CombatBuilder(Entity character) {
 		this.character = character;
 	}
 
@@ -80,7 +80,7 @@ public final class CombatBuilder {
 	 * @param target
 	 *            the character that this controller will be prompted to attack.
 	 */
-	public void attack(CharacterNode target) {
+	public void attack(Entity target) {
 
 		if (character.equals(target))
 			return;
@@ -256,7 +256,7 @@ public final class CombatBuilder {
 	 *
 	 * @return the character in control.
 	 */
-	public CharacterNode getCharacter() {
+	public Entity getCharacter() {
 		return character;
 	}
 
@@ -265,7 +265,7 @@ public final class CombatBuilder {
 	 *
 	 * @return the character the controller is attacking
 	 */
-	public CharacterNode getVictim() {
+	public Entity getVictim() {
 		return currentVictim;
 	}
 
@@ -274,7 +274,7 @@ public final class CombatBuilder {
 	 *
 	 * @return the last character that attacked.
 	 */
-	public CharacterNode getLastAttacker() {
+	public Entity getLastAttacker() {
 		return lastAttacker;
 	}
 
@@ -284,7 +284,7 @@ public final class CombatBuilder {
 	 * @param lastAttacker
 	 *            the new value to set.
 	 */
-	public void setLastAttacker(CharacterNode lastAttacker) {
+	public void setLastAttacker(Entity lastAttacker) {
 		this.lastAttacker = lastAttacker;
 	}
 
@@ -331,7 +331,7 @@ public final class CombatBuilder {
 		/**
 		 * The victim that will be listened for.
 		 */
-		private final CharacterNode victim;
+		private final Entity victim;
 
 		/**
 		 * Create a new {@link CombatDistanceListener}.
@@ -341,7 +341,7 @@ public final class CombatBuilder {
 		 * @param victim
 		 *            the victim that will be listened for.
 		 */
-		public CombatDistanceListener(CombatBuilder builder, CharacterNode victim) {
+		public CombatDistanceListener(CombatBuilder builder, Entity victim) {
 			super.attach(builder.getCharacter().getType() == NodeType.PLAYER ? ((Player) builder.getCharacter()) : ((Npc) builder.getCharacter()));
 			this.builder = builder;
 			this.victim = victim;

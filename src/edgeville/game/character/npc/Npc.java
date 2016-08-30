@@ -2,7 +2,7 @@ package edgeville.game.character.npc;
 
 import edgeville.game.NodeType;
 import edgeville.game.World;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.Flag;
 import edgeville.game.character.Hit;
 import edgeville.game.character.PoisonType;
@@ -20,7 +20,7 @@ import edgeville.game.location.Position;
  *
  * @author lare96 <http://github.com/lare96>
  */
-public final class Npc extends CharacterNode {
+public final class Npc extends Entity {
 
     /**
      * The identification for this NPC.
@@ -145,7 +145,7 @@ public final class Npc extends CharacterNode {
     }
 
     @Override
-    public void onSuccessfulHit(CharacterNode victim, CombatType type) {
+    public void onSuccessfulHit(Entity victim, CombatType type) {
         if (getDefinition().isPoisonous())
             victim.poison(CombatPoisonEffect.getPoisonType(id).orElse(PoisonType.DEFAULT_NPC));
     }

@@ -31,7 +31,7 @@ import edgeville.utility.Stopwatch;
  *
  * @author lare96 <http://github.com/lare96>
  */
-public abstract class CharacterNode extends Node {
+public abstract class Entity extends Node {
 
 	/**
 	 * The combat builder that will handle all combat operations for this
@@ -171,7 +171,7 @@ public abstract class CharacterNode extends Node {
 	/**
 	 * The character this character is currently following.
 	 */
-	private CharacterNode followCharacter;
+	private Entity followCharacter;
 
 	/**
 	 * The flag determining if this character is dead.
@@ -184,14 +184,14 @@ public abstract class CharacterNode extends Node {
 	private Position lastPosition;
 
 	/**
-	 * Creates a new {@link CharacterNode}.
+	 * Creates a new {@link Entity}.
 	 *
 	 * @param position
 	 *            the position of this character in the world.
 	 * @param type
 	 *            the type of node that this character is.
 	 */
-	public CharacterNode(Position position, NodeType type) {
+	public Entity(Position position, NodeType type) {
 		super(position, type);
 		this.autoRetaliate = (type == NodeType.NPC);
 		Preconditions.checkArgument(type == NodeType.PLAYER || type == NodeType.NPC);
@@ -212,9 +212,9 @@ public abstract class CharacterNode extends Node {
 			return true;
 		if (!super.equals(obj))
 			return false;
-		if (!(obj instanceof CharacterNode))
+		if (!(obj instanceof Entity))
 			return false;
-		CharacterNode other = (CharacterNode) obj;
+		Entity other = (Entity) obj;
 		if (super.getType() != other.getType())
 			return false;
 		if (slot != other.slot)
@@ -308,7 +308,7 @@ public abstract class CharacterNode extends Node {
 	 * @param type
 	 *            the combat type currently being used.
 	 */
-	public abstract void onSuccessfulHit(CharacterNode character, CombatType type);
+	public abstract void onSuccessfulHit(Entity character, CombatType type);
 
 	/**
 	 * Restores this character's health level by {@code amount}.
@@ -412,7 +412,7 @@ public abstract class CharacterNode extends Node {
 	 * @param character
 	 *            the character to face, or {@code null} to reset the face.
 	 */
-	public final void faceCharacter(CharacterNode character) {
+	public final void faceCharacter(Entity character) {
 		this.faceIndex = character == null ? 65535 : character.getType() == NodeType.PLAYER ? character.slot + 32768 : character.slot;
 		flags.set(Flag.FACE_CHARACTER);
 	}
@@ -519,7 +519,7 @@ public abstract class CharacterNode extends Node {
 			@Override
 			public void execute() {
 				this.cancel();
-				if (!CharacterNode.super.isRegistered()) {
+				if (!Entity.super.isRegistered()) {
 					return;
 				}
 				sendDamage(hit3);
@@ -547,7 +547,7 @@ public abstract class CharacterNode extends Node {
 			@Override
 			public void execute() {
 				this.cancel();
-				if (!CharacterNode.super.isRegistered()) {
+				if (!Entity.super.isRegistered()) {
 					return;
 				}
 				sendDamage(hit3, hit4);
@@ -563,7 +563,7 @@ public abstract class CharacterNode extends Node {
 	 * @param victim
 	 *            the victim that the spell will be cast on.
 	 */
-	public final void prepareSpell(CombatSpell spell, CharacterNode victim) {
+	public final void prepareSpell(CombatSpell spell, Entity victim) {
 		currentlyCasting = spell;
 		currentlyCasting.startCast(this, victim);
 	}
@@ -621,7 +621,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#slot}.
+	 * Sets the value for {@link Entity#slot}.
 	 *
 	 * @param slot
 	 *            the new value to set.
@@ -649,7 +649,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#primaryDirection}.
+	 * Sets the value for {@link Entity#primaryDirection}.
 	 *
 	 * @param primaryDirection
 	 *            the new value to set.
@@ -668,7 +668,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#secondaryDirection}.
+	 * Sets the value for {@link Entity#secondaryDirection}.
 	 *
 	 * @param secondaryDirection
 	 *            the new value to set.
@@ -687,7 +687,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#lastDirection}.
+	 * Sets the value for {@link Entity#lastDirection}.
 	 *
 	 * @param lastDirection
 	 *            the new value to set.
@@ -707,7 +707,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#needsPlacement}.
+	 * Sets the value for {@link Entity#needsPlacement}.
 	 *
 	 * @param needsPlacement
 	 *            the new value to set.
@@ -727,7 +727,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#resetMovementQueue}.
+	 * Sets the value for {@link Entity#resetMovementQueue}.
 	 *
 	 * @param resetMovementQueue
 	 *            the new value to set.
@@ -746,7 +746,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#currentlyCasting}.
+	 * Sets the value for {@link Entity#currentlyCasting}.
 	 *
 	 * @param currentlyCasting
 	 *            the new value to set.
@@ -765,7 +765,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#currentRegion}.
+	 * Sets the value for {@link Entity#currentRegion}.
 	 *
 	 * @param currentRegion
 	 *            the new value to set.
@@ -785,7 +785,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#autoRetaliate}.
+	 * Sets the value for {@link Entity#autoRetaliate}.
 	 *
 	 * @param autoRetaliate
 	 *            the new value to set.
@@ -805,7 +805,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#following}.
+	 * Sets the value for {@link Entity#following}.
 	 *
 	 * @param following
 	 *            the new value to set.
@@ -819,17 +819,17 @@ public abstract class CharacterNode extends Node {
 	 *
 	 * @return the character being followed.
 	 */
-	public final CharacterNode getFollowCharacter() {
+	public final Entity getFollowCharacter() {
 		return followCharacter;
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#followCharacter}.
+	 * Sets the value for {@link Entity#followCharacter}.
 	 *
 	 * @param followCharacter
 	 *            the new value to set.
 	 */
-	public final void setFollowCharacter(CharacterNode followCharacter) {
+	public final void setFollowCharacter(Entity followCharacter) {
 		this.followCharacter = followCharacter;
 	}
 
@@ -843,7 +843,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#dead}.
+	 * Sets the value for {@link Entity#dead}.
 	 *
 	 * @param dead
 	 *            the new value to set.
@@ -862,7 +862,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#lastPosition}.
+	 * Sets the value for {@link Entity#lastPosition}.
 	 *
 	 * @param lastPosition
 	 *            the new value to set.
@@ -882,7 +882,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#visible}.
+	 * Sets the value for {@link Entity#visible}.
 	 *
 	 * @param visible
 	 *            the new value to set.
@@ -1014,7 +1014,7 @@ public abstract class CharacterNode extends Node {
 	}
 
 	/**
-	 * Sets the value for {@link CharacterNode#poisonType}.
+	 * Sets the value for {@link Entity#poisonType}.
 	 * 
 	 * @param poisonType
 	 *            the new value to set.
@@ -1042,7 +1042,7 @@ public abstract class CharacterNode extends Node {
 		PathFinder.findRoute(this, x, y, true, 1, 1);
 	}
 
-	public void followPlayer(CharacterNode other) {
+	public void followPlayer(Entity other) {
 		int otherX = other.getPosition().getX();
 		int otherY = other.getPosition().getY();
 		int x = this.getPosition().getX();

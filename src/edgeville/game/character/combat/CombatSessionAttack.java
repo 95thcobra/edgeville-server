@@ -3,7 +3,7 @@ package edgeville.game.character.combat;
 import edgeville.game.NodeType;
 import edgeville.game.character.Animation;
 import edgeville.game.character.AnimationPriority;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.Graphic;
 import edgeville.game.character.Hit;
 import edgeville.game.character.combat.prayer.CombatPrayer;
@@ -62,8 +62,8 @@ public final class CombatSessionAttack extends Task {
 
 	@Override
 	public void execute() {
-		CharacterNode attacker = builder.getCharacter();
-		CharacterNode victim = builder.getVictim();
+		Entity attacker = builder.getCharacter();
+		Entity victim = builder.getVictim();
 
 		if (attacker == null || victim == null || attacker.isDead() || !attacker.isRegistered() || victim.isDead() || !victim.isRegistered()) {
 			this.cancel();

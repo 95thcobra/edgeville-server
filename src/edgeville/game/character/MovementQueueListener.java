@@ -18,7 +18,7 @@ public final class MovementQueueListener {
     /**
      * The character this listener is dedicated to.
      */
-    private final CharacterNode character;
+    private final Entity character;
 
     /**
      * The listener being used to execute tasks.
@@ -31,7 +31,7 @@ public final class MovementQueueListener {
      * @param character
      *            the character this listener is dedicated to.
      */
-    public MovementQueueListener(CharacterNode character) {
+    public MovementQueueListener(Entity character) {
         this.character = character;
     }
 
@@ -67,7 +67,7 @@ public final class MovementQueueListener {
         /**
          * The character that the queued task will be ran for.
          */
-        private final CharacterNode character;
+        private final Entity character;
 
         /**
          * The queued task that will be executed by this listener.
@@ -82,7 +82,7 @@ public final class MovementQueueListener {
          * @param task
          *            the queued task that will be executed by this listener.
          */
-        public MovementQueueListenerTask(CharacterNode character, Runnable task) {
+        public MovementQueueListenerTask(Entity character, Runnable task) {
             this.character = character;
             this.task = Objects.requireNonNull(task);
         }

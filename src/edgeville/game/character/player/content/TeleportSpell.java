@@ -2,7 +2,7 @@ package edgeville.game.character.player.content;
 
 import java.util.Optional;
 
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.Spell;
 import edgeville.game.character.player.Player;
 import edgeville.game.item.Item;
@@ -22,7 +22,7 @@ public abstract class TeleportSpell extends Spell {
     }
 
     @Override
-    public final void startCast(CharacterNode cast, CharacterNode castOn) {
+    public final void startCast(Entity cast, Entity castOn) {
 
     }
 

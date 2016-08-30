@@ -116,5 +116,5 @@ public abstract class Spell {
      *            the character the spell is being cast on, this may be
      *            {@code null}.
      */
-    public abstract void startCast(CharacterNode cast, CharacterNode castOn);
+    public abstract void startCast(Entity cast, Entity castOn);
 }

@@ -6,7 +6,7 @@ import com.google.common.base.Preconditions;
 
 import edgeville.game.NodeType;
 import edgeville.game.World;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.player.Player;
 import edgeville.game.item.Item;
 import edgeville.game.item.ItemNode;
@@ -1021,7 +1021,7 @@ public final class OutputMessages {
      *            the character to send a hint arrow on.
      * @return an instance of this encoder.
      */
-    public OutputMessages sendCharacterHintArrow(CharacterNode character) {
+    public OutputMessages sendCharacterHintArrow(Entity character) {
         MessageBuilder msg = MessageBuilder.create();
         msg.newMessage(254).put(character.getType() == NodeType.NPC ? 1 : 10);
         msg.putShort(character.getSlot());

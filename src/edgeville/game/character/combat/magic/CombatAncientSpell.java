@@ -4,7 +4,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import edgeville.game.NodeType;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.combat.Combat;
 import edgeville.game.character.combat.CombatType;
 import edgeville.game.character.npc.Npc;
@@ -21,7 +21,7 @@ import edgeville.game.location.Location;
 public abstract class CombatAncientSpell extends CombatSpell {
 
     @Override
-    public final void executeOnHit(CharacterNode cast, CharacterNode castOn, boolean accurate, int damage) {
+    public final void executeOnHit(Entity cast, Entity castOn, boolean accurate, int damage) {
         if (accurate) {
             effect(cast, castOn, damage);
             if (radius() == 0 || !Location.inMultiCombat(castOn))
@@ -61,7 +61,7 @@ public abstract class CombatAncientSpell extends CombatSpell {
      * @param damage
      *            the damage that was inflicted by the spell.
      */
-    public abstract void effect(CharacterNode cast, CharacterNode castOn, int damage);
+    public abstract void effect(Entity cast, Entity castOn, int damage);
 
     /**
      * The radius of this spell for multicast support.

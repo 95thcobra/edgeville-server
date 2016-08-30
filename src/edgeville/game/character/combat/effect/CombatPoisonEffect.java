@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import edgeville.game.NodeType;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.Hit;
 import edgeville.game.character.HitType;
 import edgeville.game.character.PoisonType;
@@ -38,7 +38,7 @@ public final class CombatPoisonEffect extends CombatEffect {
     }
 
     @Override
-    public boolean apply(CharacterNode t) {
+    public boolean apply(Entity t) {
         if (t.isPoisoned() || t.getPoisonType() == null)
             return false;
         if (t.getType() == NodeType.PLAYER) {
@@ -52,12 +52,12 @@ public final class CombatPoisonEffect extends CombatEffect {
     }
 
     @Override
-    public boolean removeOn(CharacterNode t) {
+    public boolean removeOn(Entity t) {
         return !t.isPoisoned();
     }
 
     @Override
-    public void process(CharacterNode t) {
+    public void process(Entity t) {
         amount--;
         t.damage(new Hit(t.getPoisonDamage().get(), HitType.POISON));
         if (amount == 0) {
@@ -67,7 +67,7 @@ public final class CombatPoisonEffect extends CombatEffect {
     }
 
     @Override
-    public boolean onLogin(CharacterNode t) {
+    public boolean onLogin(Entity t) {
         return t.isPoisoned();
     }
 

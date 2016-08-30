@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import edgeville.Server;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.player.Player;
 import edgeville.game.location.Position;
 import edgeville.game.object.ObjectType;
@@ -1311,7 +1311,7 @@ public class Region {
 	 * @param victim
 	 * @return
 	 */
-	public static boolean canAttack(CharacterNode attacker, CharacterNode victim) {
+	public static boolean canAttack(Entity attacker, Entity victim) {
 
 		if (attacker.getPosition().getZ() != victim.getPosition().getZ()) {
 			return false;

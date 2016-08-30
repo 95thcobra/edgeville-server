@@ -113,7 +113,7 @@ public final class Projectile {
      * @param curve
      *            the curve angle of the projectile.
      */
-    public Projectile(CharacterNode source, CharacterNode victim, int projectileId, int delay, int speed, int startHeight, int endHeight,
+    public Projectile(Entity source, Entity victim, int projectileId, int delay, int speed, int startHeight, int endHeight,
         int curve) {
         this(source.getPosition(), victim.getPosition(), (victim.getType() == NodeType.PLAYER ? -victim.getSlot() - 1
             : victim.getSlot() + 1), projectileId, delay, speed, startHeight, endHeight, curve);

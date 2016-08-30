@@ -3,7 +3,7 @@ package edgeville.game.character.combat;
 import com.google.common.base.Preconditions;
 
 import edgeville.game.NodeType;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.Hit;
 import edgeville.game.character.player.Player;
 
@@ -17,12 +17,12 @@ public class CombatSessionData {
     /**
      * The attacker in this combat session.
      */
-    private final CharacterNode attacker;
+    private final Entity attacker;
 
     /**
      * The victim in this combat session.
      */
-    private final CharacterNode victim;
+    private final Entity victim;
 
     /**
      * The hits that will be sent when the attacker attacks.
@@ -63,7 +63,7 @@ public class CombatSessionData {
      * @param checkAccuracy
      *            determines if accuracy should be calculated for hits.
      */
-    public CombatSessionData(CharacterNode attacker, CharacterNode victim, int amount, CombatType type, boolean checkAccuracy) {
+    public CombatSessionData(Entity attacker, Entity victim, int amount, CombatType type, boolean checkAccuracy) {
         this.attacker = attacker;
         this.victim = victim;
         this.type = type;
@@ -85,7 +85,7 @@ public class CombatSessionData {
      * @param checkAccuracy
      *            determines if accuracy should be calculated for hits.
      */
-    public CombatSessionData(CharacterNode attacker, CharacterNode victim, CombatType type, boolean checkAccuracy) {
+    public CombatSessionData(Entity attacker, Entity victim, CombatType type, boolean checkAccuracy) {
         this(attacker, victim, 0, type, checkAccuracy);
     }
 
@@ -184,7 +184,7 @@ public class CombatSessionData {
      *
      * @return the attacker.
      */
-    public final CharacterNode getAttacker() {
+    public final Entity getAttacker() {
         return attacker;
     }
 
@@ -193,7 +193,7 @@ public class CombatSessionData {
      *
      * @return the victim.
      */
-    public final CharacterNode getVictim() {
+    public final Entity getVictim() {
         return victim;
     }
 

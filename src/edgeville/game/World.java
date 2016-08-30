@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import edgeville.game.character.CharacterList;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.npc.Npc;
 import edgeville.game.character.npc.NpcUpdating;
 import edgeville.game.character.player.IOState;
@@ -286,7 +286,7 @@ public final class World {
      *            the character that it will be returned for.
      * @return the local players.
      */
-    public static Iterator<Player> getLocalPlayers(CharacterNode character) {
+    public static Iterator<Player> getLocalPlayers(Entity character) {
         if (character.getType() == NodeType.PLAYER)
             return ((Player) character).getLocalPlayers().iterator();
         return players.iterator();
@@ -301,7 +301,7 @@ public final class World {
      *            the character that it will be returned for.
      * @return the local npcs.
      */
-    public static Iterator<Npc> getLocalNpcs(CharacterNode character) {
+    public static Iterator<Npc> getLocalNpcs(Entity character) {
         if (character.getType() == NodeType.PLAYER)
             return ((Player) character).getLocalNpcs().iterator();
         return npcs.iterator();
@@ -312,8 +312,8 @@ public final class World {
      *
      * @return a set containing every single character.
      */
-    public static Set<CharacterNode> getCharacters() {
-        Set<CharacterNode> characters = new HashSet<>();
+    public static Set<Entity> getCharacters() {
+        Set<Entity> characters = new HashSet<>();
         players.forEach(characters::add);
         npcs.forEach(characters::add);
         return characters;

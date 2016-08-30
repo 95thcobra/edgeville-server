@@ -13,7 +13,7 @@ import edgeville.task.Task;
  *            the type of character the death process is being executed for.
  * @author lare96 <http://github.com/lare96>
  */
-public abstract class CharacterDeath<T extends CharacterNode> extends Task {
+public abstract class CharacterDeath<T extends Entity> extends Task {
 
     /**
      * The character who has died and needs the death process.

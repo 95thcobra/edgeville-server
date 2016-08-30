@@ -6,7 +6,7 @@ import edgeville.game.NodeType;
 import edgeville.game.World;
 import edgeville.game.character.Animation;
 import edgeville.game.character.AnimationPriority;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.Graphic;
 import edgeville.game.character.Projectile;
 import edgeville.game.character.Spell;
@@ -22,7 +22,7 @@ import edgeville.task.Task;
 public abstract class CombatSpell extends Spell {
 
     @Override
-    public final void startCast(CharacterNode cast, CharacterNode castOn) {
+    public final void startCast(Entity cast, Entity castOn) {
         if (cast.getType() == NodeType.PLAYER) {
             Optional<Animation> optional = castAnimation();
             if (optional.isPresent()) {
@@ -82,7 +82,7 @@ public abstract class CombatSpell extends Spell {
      *            the character this spell is being cast on.
      * @return the cast projectile.
      */
-    public abstract Optional<Projectile> projectile(CharacterNode cast, CharacterNode castOn);
+    public abstract Optional<Projectile> projectile(Entity cast, Entity castOn);
 
     /**
      * The graphic played when this spell hits the victim.
@@ -103,5 +103,5 @@ public abstract class CombatSpell extends Spell {
      * @param damage
      *            the damage inflicted by this spell.
      */
-    public abstract void executeOnHit(CharacterNode cast, CharacterNode castOn, boolean accurate, int damage);
+    public abstract void executeOnHit(Entity cast, Entity castOn, boolean accurate, int damage);
 }

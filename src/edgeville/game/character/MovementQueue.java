@@ -34,7 +34,7 @@ public final class MovementQueue {
 	/**
 	 * The character this movement queue is for.
 	 */
-	private final CharacterNode character;
+	private final Entity character;
 
 	/**
 	 * A double ended queue of waypoints in this movement queue.
@@ -67,7 +67,7 @@ public final class MovementQueue {
 	 * @param character
 	 *            the character this movement queue is for.
 	 */
-	public MovementQueue(CharacterNode character) {
+	public MovementQueue(Entity character) {
 		this.character = character;
 	}
 
@@ -297,7 +297,7 @@ public final class MovementQueue {
 	 * @param leader
 	 *            the character being followed.
 	 */
-	public void follow(CharacterNode leader) {
+	public void follow(Entity leader) {
 		if (character.getFollowCharacter() != null && character.getFollowCharacter().equals(leader)) {
 			return;
 		}
@@ -425,12 +425,12 @@ public final class MovementQueue {
 		/**
 		 * The character this process is being executed for.
 		 */
-		private final CharacterNode character;
+		private final Entity character;
 
 		/**
 		 * The character being followed in this process.
 		 */
-		private final CharacterNode leader;
+		private final Entity leader;
 
 		/**
 		 * The thread local random instance.
@@ -445,7 +445,7 @@ public final class MovementQueue {
 		 * @param leader
 		 *            the character being followed in this process.
 		 */
-		public CharacterFollowTask(CharacterNode character, CharacterNode leader) {
+		public CharacterFollowTask(Entity character, Entity leader) {
 			super(1, true);
 			this.character = character;
 			this.leader = leader;

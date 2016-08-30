@@ -1,6 +1,6 @@
 package edgeville.game.character.combat;
 
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.plugin.PluginContext;
 
 /**
@@ -21,7 +21,7 @@ public interface CombatStrategy extends PluginContext {
      *            the character being attacked.
      * @return {@code true} if an attack can be made, {@code false} otherwise.
      */
-    public boolean canAttack(CharacterNode character, CharacterNode victim);
+    public boolean canAttack(Entity character, Entity victim);
 
     /**
      * Executed when {@code character} has passed the initial {@code canAttack}
@@ -33,7 +33,7 @@ public interface CombatStrategy extends PluginContext {
      *            the character being attacked.
      * @return a container holding the data for the attack.
      */
-    public CombatSessionData attack(CharacterNode character, CharacterNode victim);
+    public CombatSessionData attack(Entity character, Entity victim);
 
     /**
      * Determines the delay for when {@code character} will attack.
@@ -42,7 +42,7 @@ public interface CombatStrategy extends PluginContext {
      *            the character waiting to attack.
      * @return the value that the attack timer should be reset to.
      */
-    public int attackDelay(CharacterNode character);
+    public int attackDelay(Entity character);
 
     /**
      * Determines how close {@code character} must be to attack.
@@ -51,7 +51,7 @@ public interface CombatStrategy extends PluginContext {
      *            the character that is attacking.
      * @return the radius that the character must be in to attack.
      */
-    public int attackDistance(CharacterNode character);
+    public int attackDistance(Entity character);
 
     /**
      * The NPCs that will be assigned this combat strategy.

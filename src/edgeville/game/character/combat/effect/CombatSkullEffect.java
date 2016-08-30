@@ -1,7 +1,7 @@
 package edgeville.game.character.combat.effect;
 
 import edgeville.game.NodeType;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.Flag;
 import edgeville.game.character.player.Player;
 
@@ -20,7 +20,7 @@ public final class CombatSkullEffect extends CombatEffect {
     }
 
     @Override
-    public boolean apply(CharacterNode c) {
+    public boolean apply(Entity c) {
         if (c.getType() == NodeType.PLAYER) {
             Player player = (Player) c;
             if (player.getSkullTimer().get() > 0) {
@@ -35,7 +35,7 @@ public final class CombatSkullEffect extends CombatEffect {
     }
 
     @Override
-    public boolean removeOn(CharacterNode c) {
+    public boolean removeOn(Entity c) {
         if (c.getType() == NodeType.PLAYER) {
             Player player = (Player) c;
             if (player.getSkullTimer().get() <= 0) {
@@ -49,7 +49,7 @@ public final class CombatSkullEffect extends CombatEffect {
     }
 
     @Override
-    public void process(CharacterNode c) {
+    public void process(Entity c) {
         if (c.getType() == NodeType.PLAYER) {
             Player player = (Player) c;
             player.getSkullTimer().decrementAndGet(50, 0);
@@ -57,7 +57,7 @@ public final class CombatSkullEffect extends CombatEffect {
     }
 
     @Override
-    public boolean onLogin(CharacterNode c) {
+    public boolean onLogin(Entity c) {
         if (c.getType() == NodeType.PLAYER) {
             Player player = (Player) c;
 

@@ -30,16 +30,16 @@ import edgeville.game.character.player.Player;
  * @param <E>
  *            the type of character being managed with this collection.
  */
-public final class CharacterList<E extends CharacterNode> implements Iterable<E> {
+public final class CharacterList<E extends Entity> implements Iterable<E> {
 
     /**
-     * The backing array of {@link CharacterNode}s within this collection.
+     * The backing array of {@link Entity}s within this collection.
      */
     private E[] characters;
 
     /**
      * The queue containing all of the cached slots that can be assigned to
-     * {@link CharacterNode}s to prevent expensive lookups.
+     * {@link Entity}s to prevent expensive lookups.
      */
     private final Queue<Integer> slotQueue = new ArrayDeque<>();
 
@@ -62,7 +62,7 @@ public final class CharacterList<E extends CharacterNode> implements Iterable<E>
     @SuppressWarnings("unchecked")
     public CharacterList(int capacity) {
         this.capacity = ++capacity;
-        this.characters = (E[]) new CharacterNode[capacity];
+        this.characters = (E[]) new Entity[capacity];
         this.size = 0;
         IntStream.rangeClosed(1, capacity).forEach(slotQueue::add);
     }
@@ -236,7 +236,7 @@ public final class CharacterList<E extends CharacterNode> implements Iterable<E>
     @SuppressWarnings("unchecked")
     public void clear() {
         forEach(this::remove);
-        characters = (E[]) new CharacterNode[capacity];
+        characters = (E[]) new Entity[capacity];
         size = 0;
     }
 
@@ -248,7 +248,7 @@ public final class CharacterList<E extends CharacterNode> implements Iterable<E>
      *            the type of character being iterated over.
      * @author lare96 <http://github.com/lare96>
      */
-    private static final class CharacterListIterator<E extends CharacterNode> implements Iterator<E> {
+    private static final class CharacterListIterator<E extends Entity> implements Iterator<E> {
 
         /**
          * The {@link CharacterList} that is storing the elements.

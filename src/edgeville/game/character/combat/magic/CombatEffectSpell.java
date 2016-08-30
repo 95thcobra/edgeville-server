@@ -2,7 +2,7 @@ package edgeville.game.character.combat.magic;
 
 import java.util.Optional;
 
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.player.Player;
 import edgeville.game.item.Item;
 
@@ -24,7 +24,7 @@ public abstract class CombatEffectSpell extends CombatSpell {
     }
 
     @Override
-    public final void executeOnHit(CharacterNode cast, CharacterNode castOn, boolean accurate, int damage) {
+    public final void executeOnHit(Entity cast, Entity castOn, boolean accurate, int damage) {
         if (accurate) {
             effect(cast, castOn);
         }
@@ -38,5 +38,5 @@ public abstract class CombatEffectSpell extends CombatSpell {
      * @param castOn
      *            the character who the spell was casted on.
      */
-    public abstract void effect(CharacterNode cast, CharacterNode castOn);
+    public abstract void effect(Entity cast, Entity castOn);
 }

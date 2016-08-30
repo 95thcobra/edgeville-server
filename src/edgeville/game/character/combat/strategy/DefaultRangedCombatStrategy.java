@@ -3,7 +3,7 @@ package edgeville.game.character.combat.strategy;
 import edgeville.game.NodeType;
 import edgeville.game.character.Animation;
 import edgeville.game.character.AnimationPriority;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.Flag;
 import edgeville.game.character.Graphic;
 import edgeville.game.character.Projectile;
@@ -25,7 +25,7 @@ import edgeville.game.region.Region;
 public class DefaultRangedCombatStrategy implements CombatStrategy {
 
 	@Override
-	public boolean canAttack(CharacterNode character, CharacterNode victim) {
+	public boolean canAttack(Entity character, Entity victim) {
 		
 		if (!Region.canAttack(character, victim)) {
 			return false;
@@ -41,7 +41,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	}
 	
 	@Override
-	public CombatSessionData attack(CharacterNode character, CharacterNode victim) {
+	public CombatSessionData attack(Entity character, Entity victim) {
 		if (character.getType() == NodeType.NPC) {
             Npc npc = (Npc)character;
             CombatRangedAmmo ammo = Combat.prepareRangedAmmo(npc);
@@ -74,7 +74,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	}
 
 	@Override
-	public int attackDelay(CharacterNode character) {
+	public int attackDelay(Entity character) {
 		int attackSpeed = character.getAttackSpeed();
 		if (character instanceof Player) {
 			((Player)character).message("Attackspeed: %d", attackSpeed);
@@ -83,7 +83,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	}
 
 	@Override
-	public int attackDistance(CharacterNode character) {
+	public int attackDistance(Entity character) {
 		if (character.getType() == NodeType.NPC)
 			return 6;
 		Player player = (Player) character;

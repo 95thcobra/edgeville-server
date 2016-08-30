@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import edgeville.game.GameConstants;
 import edgeville.game.NodeType;
 import edgeville.game.World;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.Flag;
 import edgeville.game.character.Hit;
 import edgeville.game.character.combat.Combat;
@@ -66,7 +66,7 @@ import edgeville.utility.TextUtils;
  *
  * @author lare96 <http://github.com/lare96>
  */
-public final class Player extends CharacterNode {
+public final class Player extends Entity {
 
 	private boolean debugEnabled = false;
 
@@ -525,7 +525,7 @@ public final class Player extends CharacterNode {
 	}
 
 	@Override
-	public void onSuccessfulHit(CharacterNode victim, CombatType type) {
+	public void onSuccessfulHit(Entity victim, CombatType type) {
 		if (type == CombatType.MELEE || weapon == WeaponInterface.DART || weapon == WeaponInterface.KNIFE || weapon == WeaponInterface.THROWNAXE || weapon == WeaponInterface.JAVELIN) {
 			victim.poison(CombatPoisonEffect.getPoisonType(equipment.get(Equipment.WEAPON_SLOT)).orElse(null));
 		} else if (type == CombatType.RANGED) {

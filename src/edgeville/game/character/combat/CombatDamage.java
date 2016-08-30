@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 import edgeville.game.NodeType;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.player.Player;
 import edgeville.utility.Stopwatch;
 
@@ -34,7 +34,7 @@ public final class CombatDamage {
      * @param amount
      *            the amount of damage to register.
      */
-    public void add(CharacterNode character, int amount) {
+    public void add(Entity character, int amount) {
         if (character.getType() == NodeType.PLAYER && amount > 0) {
             Player player = (Player) character;
             DamageCounter counter = attackers.putIfAbsent(player, new DamageCounter(amount));

@@ -1,7 +1,7 @@
 package edgeville.game.character.player.minigame;
 
 import edgeville.game.NodeType;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.npc.Npc;
 import edgeville.game.character.player.Player;
 import edgeville.game.item.Item;
@@ -139,7 +139,7 @@ public abstract class Minigame implements PluginContext {
      * @param other
      *            the character that was killed by the player.
      */
-    public void onKill(Player player, CharacterNode other) {
+    public void onKill(Player player, Entity other) {
 
     }
 
@@ -210,7 +210,7 @@ public abstract class Minigame implements PluginContext {
      *            the character that is being targeted.
      * @return {@code true} if the player can attack, {@code false} otherwise.
      */
-    public boolean canHit(Player player, CharacterNode other) {
+    public boolean canHit(Player player, Entity other) {
         return other.getType() == NodeType.NPC;
     }
 

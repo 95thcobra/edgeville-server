@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import edgeville.game.World;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 
 /**
- * Some sort of temporary effect applied to a {@link CharacterNode} during
+ * Some sort of temporary effect applied to a {@link Entity} during
  * combat. Combat effects include but are not limited to; being poisoned,
  * skulled, and teleblocked.
  * 
@@ -55,7 +55,7 @@ public abstract class CombatEffect {
      * @param c
      *            the character this combat effect is for.
      */
-    public final boolean start(CharacterNode c) {
+    public final boolean start(Entity c) {
         if (apply(c)) {
             World.submit(new CombatEffectTask(c, this));
             return true;
@@ -71,7 +71,7 @@ public abstract class CombatEffect {
      * @return {@code true} if the effect could be applied, {@code false}
      *         otherwise.
      */
-    public abstract boolean apply(CharacterNode c);
+    public abstract boolean apply(Entity c);
 
     /**
      * Removes this effect from {@code c} if needed.
@@ -81,7 +81,7 @@ public abstract class CombatEffect {
      * @return {@code true} if this effect should be stopped, {@code false}
      *         otherwise.
      */
-    public abstract boolean removeOn(CharacterNode c);
+    public abstract boolean removeOn(Entity c);
 
     /**
      * Provides processing for this effect on {@code c}.
@@ -89,7 +89,7 @@ public abstract class CombatEffect {
      * @param c
      *            the character this combat effect is for.
      */
-    public abstract void process(CharacterNode c);
+    public abstract void process(Entity c);
 
     /**
      * Executed on login, primarily used to re-apply the effect to {@code c}.
@@ -99,7 +99,7 @@ public abstract class CombatEffect {
      * @return {@code true} if the effect should be re-applied, {@code false}
      *         otherwise.
      */
-    public abstract boolean onLogin(CharacterNode c);
+    public abstract boolean onLogin(Entity c);
 
     /**
      * Gets the delay for this individual combat effect.

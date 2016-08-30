@@ -3,7 +3,7 @@ package edgeville.game.character.combat.strategy;
 import edgeville.game.NodeType;
 import edgeville.game.character.Animation;
 import edgeville.game.character.AnimationPriority;
-import edgeville.game.character.CharacterNode;
+import edgeville.game.character.Entity;
 import edgeville.game.character.combat.Combat;
 import edgeville.game.character.combat.CombatSessionData;
 import edgeville.game.character.combat.CombatStrategy;
@@ -19,7 +19,7 @@ import edgeville.game.item.container.Equipment;
 public class DefaultMagicCombatStrategy implements CombatStrategy {
 
 	@Override
-	public boolean canAttack(CharacterNode character, CharacterNode victim) {
+	public boolean canAttack(Entity character, Entity victim) {
 		if (character.getType() == NodeType.NPC) {
 			return true;
 		}
@@ -35,7 +35,7 @@ public class DefaultMagicCombatStrategy implements CombatStrategy {
 	}
 
 	@Override
-	public CombatSessionData attack(CharacterNode character, CharacterNode victim) {
+	public CombatSessionData attack(Entity character, Entity victim) {
 		if (character.getType() == NodeType.PLAYER) {
 			Player player = (Player) character;
 			player.prepareSpell(getSpell(player), victim);
@@ -51,12 +51,12 @@ public class DefaultMagicCombatStrategy implements CombatStrategy {
 	}
 
 	@Override
-	public int attackDelay(CharacterNode character) {
+	public int attackDelay(Entity character) {
 		return 10;
 	}
 
 	@Override
-	public int attackDistance(CharacterNode character) {
+	public int attackDistance(Entity character) {
 		return 8;
 	}
 
