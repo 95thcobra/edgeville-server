@@ -2,8 +2,8 @@
   "username": "test",
   "password": "test",
   "position": {
-    "x": 3085,
-    "y": 3529,
+    "x": 3248,
+    "y": 3538,
     "z": 0
   },
   "rights": "DEVELOPER",
@@ -354,7 +354,7 @@
   "account-banned": false,
   "auto-retaliate": false,
   "fight-type": "WHIP_FLICK",
-  "skull-timer": 0,
+  "skull-timer": 1250,
   "accept-aid": true,
   "poison-damage": 0,
   "teleblock-timer": 0,
@@ -362,7 +362,7 @@
   "skills": [
     {
       "level": 99,
-      "experience": 1.500014E7,
+      "experience": 1.5000276E7,
       "realLevel": 99
     },
     {
@@ -376,8 +376,8 @@
       "realLevel": 99
     },
     {
-      "level": 99,
-      "experience": 1.5001346666666668E7,
+      "level": 90,
+      "experience": 1.5001392000000002E7,
       "realLevel": 99
     },
     {

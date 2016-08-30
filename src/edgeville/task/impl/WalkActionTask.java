@@ -18,10 +18,8 @@ public abstract class WalkActionTask extends Task {
 
 	@Override
 	public void execute() {
-		player.message("EXECUTING");
 		if (player.getPosition().withinDistance(targetPosition, 2)) {
 			doAction();
-			player.message("DO ACTION");
 			this.cancel();
 		}
 	}

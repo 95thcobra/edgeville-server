@@ -1,5 +1,7 @@
 package edgeville.game.character;
 
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
@@ -16,8 +18,10 @@ import edgeville.game.character.combat.effect.CombatEffectType;
 import edgeville.game.character.combat.magic.CombatSpell;
 import edgeville.game.character.combat.magic.CombatWeaken;
 import edgeville.game.character.combat.strategy.DefaultRangedCombatStrategy;
+import edgeville.game.character.newcombat.AbstractCombat;
 import edgeville.game.character.npc.Npc;
 import edgeville.game.character.player.Player;
+import edgeville.game.character.timers.TimerRepository;
 import edgeville.game.location.Position;
 import edgeville.game.region.PathFinder;
 import edgeville.game.region.Region;
@@ -32,6 +36,21 @@ import edgeville.utility.Stopwatch;
  * @author lare96 <http://github.com/lare96>
  */
 public abstract class Entity extends Node {
+
+	private AbstractCombat combat;
+	protected TimerRepository timers = new TimerRepository();
+
+	public AbstractCombat getCombat() {
+		return combat;
+	}
+
+	public void setCombat(AbstractCombat combat) {
+		this.combat = combat;
+	}
+
+	public TimerRepository timers() {
+		return timers;
+	}
 
 	/**
 	 * The combat builder that will handle all combat operations for this
@@ -229,6 +248,15 @@ public abstract class Entity extends Node {
 		else if (super.getType() == NodeType.NPC)
 			return World.getNpcs().get(slot).toString();
 		throw new IllegalStateException("Invalid character node type!");
+	}
+
+	/**
+	 * This is called every game tick. 
+	 * @throws Exception
+	 */
+	public void cycle() throws Exception {
+		timers.cycle();
+		sequence();
 	}
 
 	/**
@@ -1072,16 +1100,15 @@ public abstract class Entity extends Node {
 		if (this instanceof Player && this.getCombatBuilder().getVictim() != null) {
 			this.determineStrategy();
 
-			/*if (this instanceof Player) {
-				((Player) this).getMessages().sendMessage("clipped:);
-				if (this.getCombatBuilder().getStrategy() instanceof DefaultRangedCombatStrategy) {
-					boolean clipped = Region.checkClip(((Player) this), otherX, otherY);
-					((Player) this).getMessages().sendMessage("clipped:" + clipped);
-					if (clipped) {
-						return;
-					}
-				}
-			}*/
+			/*
+			 * if (this instanceof Player) { ((Player)
+			 * this).getMessages().sendMessage("clipped:); if
+			 * (this.getCombatBuilder().getStrategy() instanceof
+			 * DefaultRangedCombatStrategy) { boolean clipped =
+			 * Region.checkClip(((Player) this), otherX, otherY); ((Player)
+			 * this).getMessages().sendMessage("clipped:" + clipped); if
+			 * (clipped) { return; } } }
+			 */
 
 			if (Combat.checkAttackDistance(this.getCombatBuilder())) {
 				return;

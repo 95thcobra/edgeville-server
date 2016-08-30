@@ -142,7 +142,7 @@ public final class World {
                 try {
                     player.getSession().handleQueuedMessages();
                     player.getMovementQueue().sequence();
-                    player.sequence();
+                    player.cycle();
                 } catch (Exception e) {
                     e.printStackTrace();
                     World.getPlayers().remove(player);
@@ -155,7 +155,7 @@ public final class World {
             public void execute(int index) {
                 Npc npc = npcs.get(index);
                 try {
-                    npc.sequence();
+                    npc.cycle();
                     npc.getMovementQueue().sequence();
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -80,7 +80,8 @@ public final class AttackPlayerMessage implements InputMessageListener {
         if (index < 0 || index > World.getPlayers().capacity() || !checkAttack(player, victim))
             return;
         player.message("Can attack");
-        //player.getCombatBuilder().attack(victim);
+        
+       // player.getCombatBuilder().attack(victim);
         
         new PvPCombat(player, victim).start();
     }

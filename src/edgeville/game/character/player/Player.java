@@ -81,6 +81,13 @@ public final class Player extends Entity {
 	}
 
 	public void stopActions() {
+		cancelTasks();
+		if (getCombat() != null) {
+			getCombat().stop();
+		}
+	}
+
+	public void cancelTasks() {
 		if (currentCancellableTask == null) {
 			return;
 		}
