@@ -17,6 +17,8 @@ import edgeville.game.object.ObjectType;
 
 public class Region {
 
+	public boolean isLoaded = false;
+
 	/**
 	 * An array of {@link WorldObject} objects that will be added after the maps
 	 * have been loaded.
@@ -700,6 +702,10 @@ public class Region {
 		int regionId = ((regionX / 8) << 8) + (regionY / 8);
 		for (Region r : regions) {
 			if (r.id() == regionId) {
+				if (!r.isLoaded) {
+					load(r.id);
+					r.isLoaded = true;
+				}
 				int clip = r.getClip(x, y, height);
 				//System.out.println("GETCLIPPING: " + clip);
 				return clip;
