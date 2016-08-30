@@ -2,7 +2,7 @@
   "username": "test",
   "password": "test",
   "position": {
-    "x": 3087,
+    "x": 3085,
     "y": 3529,
     "z": 0
   },
@@ -376,7 +376,7 @@
       "realLevel": 99
     },
     {
-      "level": 62,
+      "level": 99,
       "experience": 1.5001346666666668E7,
       "realLevel": 99
     },

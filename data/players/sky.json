@@ -2,8 +2,8 @@
   "username": "sky",
   "password": "test",
   "position": {
-    "x": 3090,
-    "y": 3529,
+    "x": 3091,
+    "y": 3532,
     "z": 0
   },
   "rights": "DEVELOPER",
@@ -31,7 +31,7 @@
       "amount": 5
     },
     {
-      "id": 4151,
+      "id": 861,
       "amount": 1
     },
     {
@@ -348,7 +348,7 @@
     null,
     null,
     {
-      "id": 861,
+      "id": 4151,
       "amount": 1
     },
     null,
@@ -362,7 +362,7 @@
     null,
     {
       "id": 892,
-      "amount": 25227
+      "amount": 25215
     }
   ],
   "friends": [
@@ -373,8 +373,8 @@
   "spellbook": "ANCIENT",
   "account-banned": false,
   "auto-retaliate": true,
-  "fight-type": "SHORTBOW_ACCURATE",
-  "skull-timer": 200,
+  "fight-type": "WHIP_FLICK",
+  "skull-timer": 0,
   "accept-aid": true,
   "poison-damage": 0,
   "teleblock-timer": 0,
@@ -382,7 +382,7 @@
   "skills": [
     {
       "level": 99,
-      "experience": 1.5105069E7,
+      "experience": 1.5105445E7,
       "realLevel": 99
     },
     {
@@ -397,12 +397,12 @@
     },
     {
       "level": 99,
-      "experience": 9.00043129999999E7,
+      "experience": 9.000450633333324E7,
       "realLevel": 99
     },
     {
       "level": 99,
-      "experience": 9.0002616E7,
+      "experience": 9.000282E7,
       "realLevel": 99
     },
     {
