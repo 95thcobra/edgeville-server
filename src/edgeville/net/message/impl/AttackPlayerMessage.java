@@ -7,6 +7,7 @@ import edgeville.game.character.combat.Combat;
 import edgeville.game.character.combat.effect.CombatEffectType;
 import edgeville.game.character.combat.magic.CombatSpell;
 import edgeville.game.character.combat.magic.CombatSpells;
+import edgeville.game.character.newcombat.PvPCombat;
 import edgeville.game.character.player.Player;
 import edgeville.game.character.player.minigame.Minigame;
 import edgeville.game.character.player.minigame.MinigameHandler;
@@ -79,7 +80,9 @@ public final class AttackPlayerMessage implements InputMessageListener {
         if (index < 0 || index > World.getPlayers().capacity() || !checkAttack(player, victim))
             return;
         player.message("Can attack");
-        player.getCombatBuilder().attack(victim);
+        //player.getCombatBuilder().attack(victim);
+        
+        new PvPCombat(player, victim).start();
     }
 
     /**
