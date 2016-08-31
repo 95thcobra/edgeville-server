@@ -2,6 +2,8 @@ package edgeville.game.character.newcombat;
 
 import edgeville.game.World;
 import edgeville.game.character.Entity;
+import edgeville.game.character.Hit;
+import edgeville.game.character.timers.TimerKey;
 import edgeville.task.Task;
 
 /**
@@ -39,6 +41,19 @@ public abstract class AbstractCombat {
 					return;
 				}
 				
+				// Check whether the player is attacking too soon.
+				if (attacker.timers().has(TimerKey.COMBAT_ATTACK)) {
+					return;
+				}
+				attacker.timers().add(TimerKey.COMBAT_ATTACK, attacker.getAttackSpeed());
+				
+				// Do animation
+				attacker.animation(attackAnimation());
+				target.animation(defendAnimation());
+				
+				// Hit the target.
+				target.damage(new Hit(1));
+				
 				cycle();
 			}
 
@@ -55,7 +70,11 @@ public abstract class AbstractCombat {
 	public abstract void cycle();
 	
 	public abstract boolean canAttack();
-
+	
+	public abstract int attackAnimation();
+	
+	public abstract int defendAnimation();
+	
 	public Entity getAttacker() {
 		return attacker;
 	}

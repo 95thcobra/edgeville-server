@@ -354,7 +354,7 @@
   "account-banned": false,
   "auto-retaliate": false,
   "fight-type": "WHIP_FLICK",
-  "skull-timer": 1250,
+  "skull-timer": 1200,
   "accept-aid": true,
   "poison-damage": 0,
   "teleblock-timer": 0,
@@ -376,7 +376,7 @@
       "realLevel": 99
     },
     {
-      "level": 90,
+      "level": 85,
       "experience": 1.5001392000000002E7,
       "realLevel": 99
     },

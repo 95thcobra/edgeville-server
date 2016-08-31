@@ -2,8 +2,8 @@
   "username": "sky",
   "password": "test",
   "position": {
-    "x": 3243,
-    "y": 3531,
+    "x": 3250,
+    "y": 3535,
     "z": 0
   },
   "rights": "DEVELOPER",
@@ -374,7 +374,7 @@
   "account-banned": false,
   "auto-retaliate": true,
   "fight-type": "WHIP_FLICK",
-  "skull-timer": 150,
+  "skull-timer": 100,
   "accept-aid": true,
   "poison-damage": 0,
   "teleblock-timer": 0,

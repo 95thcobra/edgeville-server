@@ -21,18 +21,6 @@ public class PvPCombat extends AbstractCombat {
 	@Override
 	public void cycle() {
 		
-		// Check whether the player is attacking too soon.
-		if (attacker.timers().has(TimerKey.COMBAT_ATTACK)) {
-			return;
-		}
-		attacker.timers().add(TimerKey.COMBAT_ATTACK, attacker.getAttackSpeed());
-		
-		// Do animation.
-		attacker.animation(attacker.getFightType().getAnimation());
-		target.animation(404);
-		
-		// Hit the target.
-		target.damage(new Hit(1));
 	}
 
 	@Override
@@ -41,4 +29,13 @@ public class PvPCombat extends AbstractCombat {
 		return true;
 	}
 
+	@Override
+	public int attackAnimation() {
+		return attacker.getFightType().getAnimation();
+	}
+
+	@Override
+	public int defendAnimation() {
+		return 404;
+	}
 }
