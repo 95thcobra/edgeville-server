@@ -2,8 +2,8 @@
   "username": "test",
   "password": "test",
   "position": {
-    "x": 3248,
-    "y": 3538,
+    "x": 3253,
+    "y": 3663,
     "z": 0
   },
   "rights": "DEVELOPER",
@@ -54,7 +54,10 @@
       "id": 502,
       "amount": 1
     },
-    null,
+    {
+      "id": 4151,
+      "amount": 1
+    },
     null,
     null,
     null,
@@ -333,7 +336,7 @@
     null,
     null,
     {
-      "id": 4151,
+      "id": 861,
       "amount": 1
     },
     null,
@@ -345,16 +348,19 @@
     null,
     null,
     null,
-    null
+    {
+      "id": 892,
+      "amount": 1532336
+    }
   ],
   "friends": [],
   "ignores": [],
-  "run-energy": 100,
+  "run-energy": 60,
   "spellbook": "NORMAL",
   "account-banned": false,
   "auto-retaliate": false,
-  "fight-type": "WHIP_FLICK",
-  "skull-timer": 1200,
+  "fight-type": "SHORTBOW_ACCURATE",
+  "skull-timer": 0,
   "accept-aid": true,
   "poison-damage": 0,
   "teleblock-timer": 0,
@@ -376,7 +382,7 @@
       "realLevel": 99
     },
     {
-      "level": 85,
+      "level": 21,
       "experience": 1.5001392000000002E7,
       "realLevel": 99
     },

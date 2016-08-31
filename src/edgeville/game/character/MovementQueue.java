@@ -41,6 +41,10 @@ public final class MovementQueue {
 	 */
 	private Deque<Point> waypoints = new LinkedList<>();
 
+	public Deque<Point> getWaypoints() {
+		return waypoints;
+	}
+
 	/**
 	 * The task ran when following another character.
 	 */

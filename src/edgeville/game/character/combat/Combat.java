@@ -952,6 +952,20 @@ public final class Combat {
 		}
 		return attacker.withinDistance(victim, distance);
 	}
+	
+	public static boolean checkAttackDistance(Entity attacker, Entity target, int distance) {
+		MovementQueue movement = attacker.getMovementQueue();
+		MovementQueue otherMovement = target.getMovementQueue();
+
+		if (!movement.isMovementDone() && !otherMovement.isMovementDone() && !movement.isLockMovement() && !attacker.isFrozen()) {
+			distance += 1;
+
+			if (movement.isRunning()) {
+				distance += 2;
+			}
+		}
+		return (attacker.getPosition().withinDistance(target.getPosition(), distance));
+	}
 
 	/**
 	 * A static factory method that constructs the default melee combat strategy

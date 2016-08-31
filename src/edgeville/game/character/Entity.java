@@ -251,7 +251,8 @@ public abstract class Entity extends Node {
 	}
 
 	/**
-	 * This is called every game tick. 
+	 * This is called every game tick.
+	 * 
 	 * @throws Exception
 	 */
 	public void cycle() throws Exception {
@@ -1066,8 +1067,68 @@ public abstract class Entity extends Node {
 		return false;
 	}
 
+	public void playerWalk(Position position) {
+		PathFinder.findRoute(this, position.getX(), position.getY(), true, 1, 1);
+	}
+
 	public void playerWalk(int x, int y) {
 		PathFinder.findRoute(this, x, y, true, 1, 1);
+	}
+
+	public void combatStepTowardsEntity(Entity other, int distance) {
+		int otherX = other.getPosition().getX();
+		int otherY = other.getPosition().getY();
+		int x = this.getPosition().getX();
+		int y = this.getPosition().getY();
+
+		boolean sameSpot = this.getPosition().equals(other.getPosition());
+		boolean running = this.getMovementQueue().isRunning();
+
+		if (this.isFrozen()) {
+			return;
+		}
+
+		if (this.isDead()) {
+			return;
+		}
+
+		if (running) {
+			if (otherY > y && otherX == x) {
+				playerWalk(otherX, otherY - 1);
+			} else if (otherY < y && otherX == x) {
+				playerWalk(otherX, otherY + 1);
+			} else if (otherX > x && otherY == y) {
+				playerWalk(otherX - 1, otherY);
+			} else if (otherX < x && otherY == y) {
+				playerWalk(otherX + 1, otherY);
+			} else if (otherX < x && otherY < y) {
+				playerWalk(otherX + 1, otherY + 1);
+			} else if (otherX > x && otherY > y) {
+				playerWalk(otherX - 1, otherY - 1);
+			} else if (otherX < x && otherY > y) {
+				playerWalk(otherX + 1, otherY - 1);
+			} else if (otherX > x && otherY < y) {
+				playerWalk(otherX + 1, otherY - 1);
+			}
+		} else {
+			if (otherY > y && otherX == x) {
+				playerWalk(otherX, otherY - 1);
+			} else if (otherY < y && otherX == x) {
+				playerWalk(otherX, otherY + 1);
+			} else if (otherX > x && otherY == y) {
+				playerWalk(otherX - 1, otherY);
+			} else if (otherX < x && otherY == y) {
+				playerWalk(otherX + 1, otherY);
+			} else if (otherX < x && otherY < y) {
+				playerWalk(otherX + 1, otherY + 1);
+			} else if (otherX > x && otherY > y) {
+				playerWalk(otherX - 1, otherY - 1);
+			} else if (otherX < x && otherY > y) {
+				playerWalk(otherX + 1, otherY - 1);
+			} else if (otherX > x && otherY < y) {
+				playerWalk(otherX - 1, otherY + 1);
+			}
+		}
 	}
 
 	public void followPlayer(Entity other) {

@@ -3,7 +3,11 @@ package edgeville.game.character.newcombat;
 import edgeville.game.World;
 import edgeville.game.character.Entity;
 import edgeville.game.character.Hit;
+import edgeville.game.character.newcombat.combatstrategies.AbstractCombatStrategy;
+import edgeville.game.character.player.Player;
 import edgeville.game.character.timers.TimerKey;
+import edgeville.game.location.Position;
+import edgeville.game.region.Region;
 import edgeville.task.Task;
 
 /**
@@ -14,6 +18,7 @@ public abstract class AbstractCombat {
 	private Entity attacker;
 	private Entity target;
 	private Task combatTask;
+	private AbstractCombatStrategy combatStrategy;
 
 	public AbstractCombat(Entity attacker, Entity target) {
 		this.attacker = attacker;
@@ -21,40 +26,51 @@ public abstract class AbstractCombat {
 	}
 
 	public void start() {
+		// determine strategy
+		combatStrategy = determineStrategy();
+
 		attacker.setCombat(this);
-		
+
 		combatTask = new Task(0, true) {
 
 			@Override
 			public void execute() {
-				
+
 				// Face target.
 				attacker.faceCharacter(target);
-				
+
 				// Check if player can attack.
 				if (!canAttack()) {
 					return;
 				}
 				
-				// Check if player is within distance. TODO: This should be checked in strategies.
-				if (!attacker.getPosition().withinDistance(target.getPosition(), 2)) {
+				// You can't attack if you're on same position as target
+				if (attacker.getPosition().equals(target.getPosition())) {
 					return;
 				}
 				
+				// Follow player
+				if (!attacker.getPosition().withinDistance(target.getPosition(), combatStrategy.attackDistance())) {
+					attacker.combatStepTowardsEntity(target, combatStrategy.attackDistance());
+				} else {
+					attacker.getMovementQueue().reset();
+				}
+
 				// Check whether the player is attacking too soon.
 				if (attacker.timers().has(TimerKey.COMBAT_ATTACK)) {
 					return;
 				}
 				attacker.timers().add(TimerKey.COMBAT_ATTACK, attacker.getAttackSpeed());
-				
+
 				// Do animation
 				attacker.animation(attackAnimation());
 				target.animation(defendAnimation());
-				
+
 				// Hit the target.
 				target.damage(new Hit(1));
-				
+
 				cycle();
+				combatStrategy.attack();
 			}
 
 		};
@@ -68,13 +84,17 @@ public abstract class AbstractCombat {
 	}
 
 	public abstract void cycle();
-	
+
 	public abstract boolean canAttack();
-	
+
 	public abstract int attackAnimation();
-	
+
 	public abstract int defendAnimation();
-	
+
+	public abstract void initiate();
+
+	public abstract AbstractCombatStrategy determineStrategy();
+
 	public Entity getAttacker() {
 		return attacker;
 	}
