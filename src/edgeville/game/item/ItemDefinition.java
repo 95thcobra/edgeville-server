@@ -32,7 +32,7 @@ public final class ItemDefinition {
     /**
      * The equipment slot of this item.
      */
-    private final int equipmentSlot;
+    private int equipmentSlot;
 
     /**
      * The flag that determines if the item is noteable.
@@ -72,7 +72,7 @@ public final class ItemDefinition {
     /**
      * The array of bonuses for this item.
      */
-    private final int[] bonus;
+    private int[] bonus;
 
     /**
      * The flag that determines if this item is two-handed.
@@ -197,6 +197,10 @@ public final class ItemDefinition {
     public int getEquipmentSlot() {
         return equipmentSlot;
     }
+    
+    public void setEquipmentSlot(int equipmentSlot) {
+    	this.equipmentSlot = equipmentSlot;
+    }
 
     /**
      * Determines if the item is noted or not.
@@ -277,6 +281,10 @@ public final class ItemDefinition {
      */
     public int[] getBonus() {
         return bonus;
+    }
+    
+    public void setBonus(int[] bonus) {
+    	this.bonus = bonus;
     }
 
     /**

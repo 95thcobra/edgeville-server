@@ -21,7 +21,7 @@ public final class Server {
     /**
      * The name of this server.
      */
-    public static final String NAME = "Asteria 3.0";
+    public static final String NAME = "Edgeville";
 
     /**
      * The flag that determines if debugging messages should be printed or not.

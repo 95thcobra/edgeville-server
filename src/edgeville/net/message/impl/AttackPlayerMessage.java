@@ -76,8 +76,6 @@ public final class AttackPlayerMessage implements InputMessageListener {
 		if (index < 0 || index > World.getPlayers().capacity() || !checkAttack(player, victim))
 			return;
 
-		// player.getCombatBuilder().attack(victim);
-
 		new PlayerVersusEntity(player, victim).start();
 	}
 

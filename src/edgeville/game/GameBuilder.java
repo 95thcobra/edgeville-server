@@ -10,6 +10,7 @@ import edgeville.game.character.player.serialize.PlayerSerialization;
 import edgeville.game.item.ItemNodeManager;
 import edgeville.game.region.ObjectDef;
 import edgeville.game.region.Region;
+import edgeville.load.EquipmentInfo;
 import edgeville.net.ConnectionHandler;
 import edgeville.service.ServiceQueue;
 import edgeville.utility.BackgroundLoader;
@@ -99,6 +100,9 @@ public final class GameBuilder {
         tasks.add(new ObjectNodeRemoveLoader());
         tasks.add(new NpcDropCacheLoader());
         //tasks.add(World.getPlugins()::init);
+        
+        EquipmentInfo.loadAll();
+        
         return tasks;
     }
 }
