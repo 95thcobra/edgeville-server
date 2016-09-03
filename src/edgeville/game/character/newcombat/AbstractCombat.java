@@ -4,6 +4,8 @@ import edgeville.game.World;
 import edgeville.game.character.Entity;
 import edgeville.game.character.Hit;
 import edgeville.game.character.newcombat.combatstrategies.AbstractCombatStrategy;
+import edgeville.game.character.newcombat.formulas.AccuracyFormula;
+import edgeville.game.character.newcombat.formulas.MaxHitFormulas;
 import edgeville.game.character.player.Player;
 import edgeville.game.character.timers.TimerKey;
 import edgeville.game.location.Position;
@@ -66,8 +68,10 @@ public abstract class AbstractCombat {
 				attacker.animation(attackAnimation());
 				target.animation(defendAnimation());
 
-				// Hit the target.
-				target.damage(new Hit(1));
+				// Calculate hit and damage target.
+				int maxHit = MaxHitFormulas.maximumMeleeHit((Player)attacker);
+				int hit = AccuracyFormula.calculateMeleeHit((Player)attacker, (Player)target, maxHit);
+				target.damage(new Hit(hit));
 
 				cycle();
 				combatStrategy.attack();

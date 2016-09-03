@@ -28,5 +28,11 @@ public class RangedCombatStrategy extends PlayerCombatStrategy {
 	public int attackDistance() {
 		return Combat.getRangedDistance(attacker.getWeapon()) + (attacker.getFightType().getStyle() == FightStyle.DEFENSIVE ? 2 : 0);
 	}
+
+	@Override
+	public int calculateHit() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

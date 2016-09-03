@@ -1,5 +1,8 @@
 package edgeville.game.item;
 
+import edgeville.load.EquipmentInfo;
+import edgeville.load.ItemDefinitionNew;
+
 /**
  * The container class that represents an item that can be interacted with.
  *
@@ -146,6 +149,10 @@ public final class Item {
     		return ItemDefinition.DEFINITIONS[1];
     	}*/
     	return ItemDefinition.DEFINITIONS[id];
+    }
+    
+    public final ItemDefinitionNew getNewDefinition() {
+    	return EquipmentInfo.itemDefinitions[id];
     }
 
     /**

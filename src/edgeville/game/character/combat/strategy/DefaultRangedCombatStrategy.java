@@ -43,7 +43,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	@Override
 	public CombatSessionData attack(Entity character, Entity victim) {
 		if (character.getType() == NodeType.NPC) {
-            Npc npc = (Npc)character;
+            Entity npc = (Entity)character;
             CombatRangedAmmo ammo = Combat.prepareRangedAmmo(npc);
             character.animation(new Animation(npc.getDefinition().getAttackAnimation()));
             character.highGraphic(new Graphic(ammo.getGraphic()));

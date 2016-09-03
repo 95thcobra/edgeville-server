@@ -35,7 +35,11 @@ public enum CombatPrayer {
     PROTECT_FROM_MELEE(5, 0, 43, 97, 12, 13, 15, 16, 17),
     RETRIBUTION(17, 3, 46, 98, 12, 13, 14, 16, 17),
     REDEMPTION(6, 5, 49, 99, 12, 13, 14, 15, 17),
-    SMITE(7, 4, 52, 100, 12, 13, 14, 15, 16);
+    SMITE(7, 4, 52, 100, 12, 13, 14, 15, 16),
+	
+	CHIVALRY(7, 4, 52, 100, 12, 13, 14, 15, 16),//TODO:correct numbers, drain is correct though
+	PIETY(7, 4, 52, 100, 12, 13, 14, 15, 16);//TODO:correct numbers, drain is correct though
+	//int drainRate, int headIcon, int level, int config, int... deactivate) {
 
     /**
      * The cached array that will contain mappings of all the elements to their

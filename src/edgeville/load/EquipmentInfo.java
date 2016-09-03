@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import edgeville.Constants;
+import edgeville.game.character.player.Player;
+import edgeville.game.item.Item;
 
 /**
  * @author Simon on 1-9-2016
@@ -122,5 +124,22 @@ public class EquipmentInfo {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static Bonuses getTotalEquipmentBonuses(Player player) {
+		int[] totalBonuses = new int[14];
+		for (int i = 0; i < 14; i++) {
+			Item item = player.getEquipment().get(i);
+			if (item == null) {
+				continue;
+			}
+			int itemId = item.getId();
+			int[] bonuses = itemDefinitions[itemId].getBonuses().getBonusesAsArray();
+
+			totalBonuses[i] += bonuses[i];
+			
+		}
+		
+		return new Bonuses(totalBonuses);
 	}
 }

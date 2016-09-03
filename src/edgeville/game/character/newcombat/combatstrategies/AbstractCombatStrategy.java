@@ -22,4 +22,5 @@ public abstract class AbstractCombatStrategy {
 	
 	public abstract void attack();
 	public abstract int attackDistance();
+	public abstract int calculateHit();
 }

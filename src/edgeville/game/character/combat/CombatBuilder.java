@@ -342,7 +342,7 @@ public final class CombatBuilder {
 		 *            the victim that will be listened for.
 		 */
 		public CombatDistanceListener(CombatBuilder builder, Entity victim) {
-			super.attach(builder.getCharacter().getType() == NodeType.PLAYER ? ((Player) builder.getCharacter()) : ((Npc) builder.getCharacter()));
+			super.attach(builder.getCharacter().getType() == NodeType.PLAYER ? ((Player) builder.getCharacter()) : ((Entity) builder.getCharacter()));
 			this.builder = builder;
 			this.victim = victim;
 		}

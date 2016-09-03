@@ -51,6 +51,8 @@ import edgeville.game.location.Location;
 import edgeville.game.location.Position;
 import edgeville.game.region.PathFinder;
 import edgeville.game.shop.Shop;
+import edgeville.load.Bonuses;
+import edgeville.load.EquipmentInfo;
 import edgeville.net.PlayerIO;
 import edgeville.net.message.OutputMessages;
 import edgeville.task.Task;
@@ -68,6 +70,16 @@ import edgeville.utility.TextUtils;
  */
 public final class Player extends Entity {
 
+	private Bonuses totalEquipmentbonuses;
+	
+	public Bonuses getBonuses() {
+		return totalEquipmentbonuses;
+	}
+	
+	public void setBonuses(Bonuses bonuses) {
+		this.totalEquipmentbonuses = bonuses;
+	}
+	
 	private boolean debugEnabled = false;
 
 	private Task currentCancellableTask;
@@ -774,10 +786,15 @@ public final class Player extends Entity {
 			for (int i = 0; i < bonus.length; i++) {
 				bonus[i] += item.getDefinition().getBonus()[i];
 			}
+			
+			// new bonuses
+			this.setBonuses(EquipmentInfo.getTotalEquipmentBonuses(this));
+			//
 		}
 		for (int i = 0; i < bonus.length; i++) {
 			encoder.sendString(Combat.BONUS_NAMES[i] + ": " + (bonus[i] >= 0 ? "+" : "") + bonus[i], (1675 + i + (i == 10 || i == 11 ? 1 : 0)));
 		}
+		
 	}
 
 	/**

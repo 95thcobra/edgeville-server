@@ -30,4 +30,10 @@ public class MeleeCombatStrategy extends PlayerCombatStrategy {
 		return 1;
 	}
 
+	@Override
+	public int calculateHit() {
+		//AccuracyFormula.calcul
+		return 0;
+	}
+
 }

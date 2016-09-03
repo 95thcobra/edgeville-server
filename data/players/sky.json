@@ -2,8 +2,8 @@
   "username": "sky",
   "password": "test",
   "position": {
-    "x": 3243,
-    "y": 3659,
+    "x": 3254,
+    "y": 3662,
     "z": 0
   },
   "rights": "DEVELOPER",
@@ -79,7 +79,7 @@
       "amount": 1
     },
     {
-      "id": 4151,
+      "id": 837,
       "amount": 1
     },
     null,
@@ -354,7 +354,7 @@
     null,
     null,
     {
-      "id": 837,
+      "id": 4151,
       "amount": 1
     },
     null,
@@ -379,8 +379,8 @@
   "spellbook": "ANCIENT",
   "account-banned": false,
   "auto-retaliate": true,
-  "fight-type": "CROSSBOW_ACCURATE",
-  "skull-timer": 0,
+  "fight-type": "WHIP_FLICK",
+  "skull-timer": 1900,
   "accept-aid": true,
   "poison-damage": 0,
   "teleblock-timer": 0,

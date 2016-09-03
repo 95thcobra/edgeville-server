@@ -18,7 +18,8 @@ public class ItemDefinitionNew {
 	private int lowAlchPrice;
 
 	// set afterwards
-	private int[] bonuses;
+	//private int[] bonuses;
+	private Bonuses bonuses;
 	private int equipmentSlot;
 
 	public ItemDefinitionNew(int id, String name, String examine,
@@ -81,12 +82,12 @@ public class ItemDefinitionNew {
 		return lowAlchPrice;
 	}
 
-	public int[] getBonuses() {
+	public /*int[](*/Bonuses getBonuses() {
 		return bonuses;
 	}
 
 	public void setBonuses(int[] bonuses) {
-		this.bonuses = bonuses;
+		this.bonuses = new Bonuses(bonuses);
 	}
 
 	public int getEquipmentSlot() {

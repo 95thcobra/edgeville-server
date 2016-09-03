@@ -1,11 +1,13 @@
 package edgeville.game;
 
+import java.security.SecureRandom;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Queue;
+import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.TimeUnit;
@@ -41,6 +43,8 @@ import edgeville.utility.LoggerUtils;
  */
 public final class World {
 
+    public static Random random = new SecureRandom();
+	
     /**
      * The logger that will print important information.
      */
@@ -293,7 +297,7 @@ public final class World {
     }
 
     /**
-     * Retrieves and returns the local {@link Npc}s for {@code character}. The
+     * Retrieves and returns the local {@link Entity}s for {@code character}. The
      * specific npcs returned is completely dependent on the character given in
      * the argument.
      * 

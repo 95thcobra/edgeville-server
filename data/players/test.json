@@ -355,7 +355,7 @@
   ],
   "friends": [],
   "ignores": [],
-  "run-energy": 60,
+  "run-energy": 100,
   "spellbook": "NORMAL",
   "account-banned": false,
   "auto-retaliate": false,
@@ -382,7 +382,7 @@
       "realLevel": 99
     },
     {
-      "level": 21,
+      "level": 59,
       "experience": 1.5001392000000002E7,
       "realLevel": 99
     },

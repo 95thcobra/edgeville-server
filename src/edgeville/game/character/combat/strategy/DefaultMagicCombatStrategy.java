@@ -40,7 +40,7 @@ public class DefaultMagicCombatStrategy implements CombatStrategy {
 			Player player = (Player) character;
 			player.prepareSpell(getSpell(player), victim);
 		} else if (character.getType() == NodeType.NPC) {
-			Npc npc = (Npc) character;
+			Entity npc = (Entity) character;
 			npc.prepareSpell(Combat.prepareSpellCast(npc).getSpell(), victim);
 		}
 

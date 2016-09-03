@@ -73,7 +73,7 @@ public abstract class Minigame implements PluginContext {
      * @param npc
      *            the npc that was clicked by the player.
      */
-    public void onFirstClickNpc(Player player, Npc npc) {
+    public void onFirstClickNpc(Player player, Entity npc) {
 
     }
 
@@ -85,7 +85,7 @@ public abstract class Minigame implements PluginContext {
      * @param npc
      *            the npc that was clicked by the player.
      */
-    public void onSecondClickNpc(Player player, Npc npc) {
+    public void onSecondClickNpc(Player player, Entity npc) {
 
     }
 
